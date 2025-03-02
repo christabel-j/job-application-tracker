@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- USER ADDS NEW APPLICATION  -->
+    <h1>Add a job to your tracker</h1>
+    <div class="new-application-container">
+      <form>
+        <div class="input company-input">
+          <label for="company">Company name</label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            placeholder="e.g. Tesco"
+          />
+        </div>
+        <div class="input job-title-input">
+          <label for="job-title">Job title </label>
+          <input
+            id="job-title"
+            type="text"
+            name="job-title"
+            placeholder="e.g. Software Developer"
+          />
+        </div>
+        <div class="input salary-input">
+          <label for="salary">Salary </label>
+          <input
+            id="salary"
+            type="number"
+            name="salary"
+            placeholder="e.g. 35000"
+          />
+        </div>
+        <div class="input status-input">
+          <label>Application Status</label>
+          <select>
+            <option disabled>Select application status</option>
+            <option value="Applied">Applied</option>
+            <option value="Online Assessment">Online Assessment</option>
+            <option value="Interview">Interview</option>
+            <option value="Offer">Offer</option>
+            <option value="Rejected">Rejected</option>
+          </select>
+        </div>
+      </form>
+      <button id="clear">Clear</button>
+      <button id="add">Add</button>
+    </div>
+    <!-- DUPLICATE WARNING -->
+    <div class="duplicate-warning-container">
+      <p class="warning">You have already added this application</p>
+    </div>
+    <!-- LISTING OF JOB APPLICATIONS -->
+    <h2>Jobs applied for:</h2>
+    <div class="All-applications">
+      <div class="job-1">
+        <p>Company: Tesco</p>
+        <p>Job title: Data Engineer</p>
+        <p>Salary: 40000</p>
+        <p>Status: Applied</p>
+        <button id="delete-application--btn">🗑️</button>
+      </div>
+      <div class="job-2">
+        <p>Company: Lloyds Banking Group</p>
+        <p>Job title: Data Engineer</p>
+        <p>Salary: 42000</p>
+        <p>Status: Applied</p>
+        <button id="delete-application--btn">🗑️</button>
+      </div>
+    </div>
+    <button id="delete-all--btn">Delete all</button>
+    <script src="script.js"></script>
+  </body>
+</html>

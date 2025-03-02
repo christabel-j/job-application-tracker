@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Headings */
+h1,
+h2 {
+  text-align: center;
+}
+
+/* Input Form */
+.new-application-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 90%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Buttons */
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#add {
+  width: 40%;
+  margin: 0 auto;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+#clear {
+  background-color: #dc3545; /* Red color for distinction */
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 3rem;
+  margin-left: 90%;
+}
+
+#clear:hover {
+  background-color: #b02a37;
+}
+
+#delete-application--btn {
+  width: 10%;
+  color: #278fff;
+  margin-left: 90%;
+}
+
+#delete-all--btn {
+  background-color: #dc3545;
+  max-width: 90px;
+  margin: 0 auto;
+}
+
+#delete-all--btn:hover {
+  background-color: #b02a37;
+}
+
+/* Duplicate Warning */
+.duplicate-warning-container {
+  text-align: center;
+  margin-top: 15px;
+  color: red;
+  font-weight: bold;
+  display: none; /* Hide by default */
+}
+
+/* Job Listings */
+.All-applications {
+  margin-top: 20px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.All-applications div {
+  background: white;
+  padding: 15px;
+  border-left: 5px solid #007bff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.All-applications p {
+  margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  .new-application-container,
+  .All-applications {
+    max-width: 90%;
+  }
+}
