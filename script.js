@@ -34,17 +34,17 @@ addApplicationBtn.addEventListener("click", () => {
   } else {
     // console.log("This is a unique application");
     jobApplications.add(formData);
-    console.log(jobApplications);
+    // console.log(jobApplications);
     allApplicationsContainer.insertAdjacentHTML(
       "beforeend",
       `<div class="job">
-            <p>Company: ${companyInput.value}</p>
-            <p>Job title: ${jobTitleInput.value}</p>
-            <p>Salary: ${salaryInput.value}</p>
-            <p>Status: ${statusInput.value}</p>
+            <p class="company">Company: ${companyInput.value}</p>
+            <p class="job-title">Job title: ${jobTitleInput.value}</p>
+            <p class="salary">Salary: ${salaryInput.value}</p>
+            <p class="status">Status: ${statusInput.value}</p>
             <div class="application-btns">
-              <button id="edit">✏️</button>
-              <button id="delete-application--btn">🗑️</button>
+              <button class="edit">✏️</button>
+              <button class="delete-application--btn">🗑️</button>
             </div>
         </div>`
     );
@@ -57,4 +57,42 @@ addApplicationBtn.addEventListener("click", () => {
 });
 
 // delete individual application functionality
-// deleteApplicationBtn.addEventListener("click", () => {});
+
+// Function to delete a specific job application
+function deleteApplication(event) {
+  // Find the closest job listing container
+  const jobCard = event.target.closest(".job"); // event.target = the button that is clicked; .closest(".application-card") finds the nearest parent div with that class
+
+  // Extract job details from the UI
+  const company = jobCard.querySelector(".company").textContent.split(": ")[1];
+  const jobTitle = jobCard
+    .querySelector(".job-title")
+    .textContent.split(": ")[1];
+  const salary = jobCard.querySelector(".salary").textContent.split(": ")[1];
+  const status = jobCard.querySelector(".status").textContent.split(": ")[1];
+
+  //recreate the stored JSON string
+  const jobString = JSON.stringify({
+    company: company,
+    jobTitle: jobTitle,
+    salary: salary,
+    status: status,
+  });
+
+  // Find and remove from Set
+  for (let job of jobApplications) {
+    if (job === jobString) {
+      jobApplications.delete(job);
+      break;
+    }
+  }
+
+  // Remove from UI
+  jobCard.remove();
+}
+
+allApplicationsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("delete-application--btn")) {
+    deleteApplication(event);
+  }
+});

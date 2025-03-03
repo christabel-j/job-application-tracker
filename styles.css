@@ -81,7 +81,7 @@ button:hover {
   background-color: #b02a37;
 }
 
-#delete-application--btn {
+.delete-application--btn {
   width: 8.5%;
   color: #278fff;
   margin-left: 10px;
@@ -102,9 +102,19 @@ button:hover {
   justify-content: flex-end;
 }
 
-#edit {
+.edit {
   width: 8.5%;
 }
+
+/* #dimiss-duplicate-warning {
+  background-color: none;
+  color: #dc3545;
+  font-weight: bold;
+}
+
+#dimiss-duplicate-warning:hover {
+  color: #b02a37;
+} */
 
 /* Duplicate Warning */
 .duplicate-warning-container {
