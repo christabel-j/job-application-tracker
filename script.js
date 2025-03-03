@@ -148,3 +148,11 @@ allApplicationsContainer.addEventListener("click", (event) => {
     editApplication(event);
   }
 });
+
+// CLEAR FORM FUNCTIONALITY
+clearFormBtn.addEventListener("click", () => {
+  companyInput.value = "";
+  jobTitleInput.value = "";
+  salaryInput.value = "";
+  statusInput.value = "";
+});
