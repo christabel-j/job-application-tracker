@@ -5,6 +5,7 @@ const clearFormBtn = document.querySelector("#clear");
 const deleteApplicationBtn = document.querySelector("#delete-application--btn");
 const deleteAllBtn = document.querySelector("#delete-all--btn");
 const editApplicationBtn = document.querySelector(".edit");
+const dismissWarning = document.getElementById("dismiss");
 
 //input fields
 const companyInput = document.querySelector("#company");
@@ -155,4 +156,9 @@ clearFormBtn.addEventListener("click", () => {
   jobTitleInput.value = "";
   salaryInput.value = "";
   statusInput.value = "";
+});
+
+// DISMISS DUPLICATE JOB WARNING
+dismissWarning.addEventListener("click", () => {
+  duplicateWarning.remove();
 });
