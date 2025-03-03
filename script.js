@@ -4,6 +4,7 @@ const addApplicationBtn = document.querySelector("#add");
 const clearFormBtn = document.querySelector("#clear");
 const deleteApplicationBtn = document.querySelector("#delete-application--btn");
 const deleteAllBtn = document.querySelector("#delete-all--btn");
+const editApplicationBtn = document.querySelector(".edit");
 
 //input fields
 const companyInput = document.querySelector("#company");
@@ -27,7 +28,7 @@ addApplicationBtn.addEventListener("click", () => {
     salary: salaryInput.value,
     status: statusInput.value,
   });
-  console.log(formData);
+  // console.log(formData);
   if (jobApplications.has(formData)) {
     // console.log("This application already exists");
     duplicateWarning.style.display = "block";
@@ -94,5 +95,56 @@ function deleteApplication(event) {
 allApplicationsContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("delete-application--btn")) {
     deleteApplication(event);
+  }
+});
+
+// DELETE ALL APPLICATIONS
+deleteAllBtn.addEventListener("click", () => {
+  jobApplications.clear();
+  allApplicationsContainer.innerHTML = "";
+});
+
+// EDIT SPECIFIC APPLICATION
+function editApplication(event) {
+  // Find the closest job listing container
+  const jobCard = event.target.closest(".job");
+
+  // Extract job details from the UI
+  const company = jobCard.querySelector(".company").textContent.split(": ")[1];
+  const jobTitle = jobCard
+    .querySelector(".job-title")
+    .textContent.split(": ")[1];
+  const salary = jobCard.querySelector(".salary").textContent.split(": ")[1];
+  const status = jobCard.querySelector(".status").textContent.split(": ")[1];
+
+  //recreate the stored JSON string
+  const jobString = JSON.stringify({
+    company: company,
+    jobTitle: jobTitle,
+    salary: salary,
+    status: status,
+  });
+
+  // Find and remove from Set
+  for (let job of jobApplications) {
+    if (job === jobString) {
+      jobApplications.delete(job);
+      break;
+    }
+  }
+
+  //remove old former version from the UI list
+  jobCard.remove();
+
+  // fill in inputs with old details which user can change
+  companyInput.value = company;
+  jobTitleInput.value = jobTitle;
+  salaryInput.value = salary;
+  statusInput.value = status;
+}
+
+allApplicationsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("edit")) {
+    editApplication(event);
   }
 });
