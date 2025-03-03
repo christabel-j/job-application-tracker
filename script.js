@@ -42,8 +42,11 @@ addApplicationBtn.addEventListener("click", () => {
             <p>Job title: ${jobTitleInput.value}</p>
             <p>Salary: ${salaryInput.value}</p>
             <p>Status: ${statusInput.value}</p>
-            <button id="delete-application--btn">🗑️</button>
-          </div>`
+            <div class="application-btns">
+              <button id="edit">✏️</button>
+              <button id="delete-application--btn">🗑️</button>
+            </div>
+        </div>`
     );
   }
   // clear form inputs
@@ -52,3 +55,6 @@ addApplicationBtn.addEventListener("click", () => {
   salaryInput.value = "";
   statusInput.value = "";
 });
+
+// delete individual application functionality
+// deleteApplicationBtn.addEventListener("click", () => {});
